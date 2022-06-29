@@ -70,6 +70,7 @@ while (taskNumber != 0)
 
         case 2 : // Выбран пункт меню 2
         Console.WriteLine("Определяем расстояние между точками...");
+
         Console.WriteLine("Введите координаты первой точки: ");
         Console.Write("x1 = ");
         double x1 = Convert.ToDouble(Console.ReadLine());
@@ -77,6 +78,7 @@ while (taskNumber != 0)
         double y1 = Convert.ToDouble(Console.ReadLine());
         Console.Write("z1 = ");
         double z1 = Convert.ToDouble(Console.ReadLine());
+
         Console.WriteLine("Введите координаты второй точки: ");
         Console.Write("x2 = ");
         double x2 = Convert.ToDouble(Console.ReadLine());
@@ -90,12 +92,14 @@ while (taskNumber != 0)
 
         case 3 :// Выбран пункт меню 3
         Console.WriteLine("Выводим кубы чисел...");
+
         Console.Write("Введите число N : ");
         int cube = Convert.ToInt32(Console.ReadLine());
+        
         CubesTable(cube);
         break;
         }
 
-            taskNumber = Menu();
+        taskNumber = Menu();
 }
 Console.WriteLine("Завершение работы");
