@@ -1,4 +1,25 @@
-﻿// Длина массива
+﻿int SumOfNumbers(int num)
+{
+    int sum = 0;
+    while (num != 0)
+    {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+Console.Clear();
+Console.WriteLine("----- Task 1 -------");
+Console.Write("Input number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Sum is " + SumOfNumbers(number));
+
+//----------------------- Задача 2
+
+Console.WriteLine("----- Task 2 -------");
+// Длина массива
 int ARRAY_LENGTH = 8;
 
 /* Метод создаёт новый целочисленный массив заданной длины
@@ -23,11 +44,11 @@ void ArrayPrint(int[] arr)
     }
 }
 
-Console.Clear();
 // Инициализируем массив с помощью метода ArrayInit
 int[] array = ArrayInit(ARRAY_LENGTH);
 
 // Выводим массив на печать
+Console.WriteLine("You array is ...");
 ArrayPrint(array);
 
 Console.WriteLine();
