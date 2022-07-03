@@ -1,10 +1,11 @@
-﻿int SumOfNumbers(int num)
+﻿// Метод находит сумму цифру из которых состоит зданное число
+int SumOfNumbers(int num)
 {
     int sum = 0;
     while (num != 0)
     {
-        sum += num % 10;
-        num /= 10;
+        sum += num % 10;    // последнюю цифру числа прибавляем к переменной sum
+        num /= 10;          // и отсекаем эту цифру
     }
     return sum;
 }
@@ -26,7 +27,10 @@ int ARRAY_LENGTH = 8;
    и заполняет случайными числами в диапазоне 0..99*/
 int[] ArrayInit(int len)
 {
+    // Создаём массив mas заданной длины len
     int[] mas = new int[len];
+
+    // и заполняем его случайными числами
     for (int i = 0; i < len; i++)
     {
         mas[i] = new Random().Next(0, 100);
@@ -42,13 +46,15 @@ void ArrayPrint(int[] arr)
     {
         Console.Write(arr[i] + " ");
     }
+
+    // т.к. элементы массива выводятся в одной строке, по завершении вывода
+    // делаем переход на новую строку
+    Console.WriteLine();
 }
 
 // Инициализируем массив с помощью метода ArrayInit
 int[] array = ArrayInit(ARRAY_LENGTH);
 
 // Выводим массив на печать
-Console.WriteLine("You array is ...");
+Console.WriteLine("Your array is ...");
 ArrayPrint(array);
-
-Console.WriteLine();
