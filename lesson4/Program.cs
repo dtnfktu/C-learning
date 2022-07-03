@@ -57,4 +57,9 @@ int[] array = ArrayInit(ARRAY_LENGTH);
 
 // Выводим массив на печать
 Console.WriteLine("Your array is ...");
+// Своим методом
+Console.WriteLine("...by ArrayPrint method");
 ArrayPrint(array);
+// Один из способов от C#
+Console.WriteLine("\n...by String.Join method");
+Console.WriteLine(String.Join(" ", array));
