@@ -79,7 +79,7 @@ double MinElement(double[] array)
     return result;                                  // Передаём в основную программу
 }
 
-// Находим минимальный элемент в массиве
+// Находим максимальный элемент в массиве
 double MaxElement(double[] array)
 {
     double result = array[0];                       //Предполагаем, что максимум - первый элемент массива
