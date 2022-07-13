@@ -55,7 +55,7 @@ string FindElementInMatrix(int[,] array, int PosRow, int PosCol)
 {
     string result = "";
 
-    if (PosRow >= array.GetLength(0) || PosCol >= array.GetLength(1))
+    if (PosRow >= array.GetLength(0) || PosCol >= array.GetLength(1) || PosRow < 0 || PosCol < 0)
      result = "В данной матрице такого элемента нет";
     else result = "Элемент [" + PosRow + "," + PosCol + "] = " + Convert.ToString(array[PosRow, PosCol]); 
 
@@ -64,7 +64,7 @@ string FindElementInMatrix(int[,] array, int PosRow, int PosCol)
 
 // Вычисление среднего арифметического по столбцам
 // Метод возвращает массив средних арифметических
-double[] AverageNumsInColumns(double[,] matrix)
+double[] AverageNumsInColumns(int[,] matrix)
 {
     double[] avg = new double[matrix.GetLength(1)];
 
@@ -108,11 +108,11 @@ Console.WriteLine(FindElementInMatrix(IntArray, RowPos, ColPos));
 
 Console.WriteLine("\n------------- Задание 3 (Задача 52) -------------");
 
-DoubleArray = CreateDoubleRandomArray(rows, cols, MinNumber, MaxNumber);
-ShowDoubleArray(DoubleArray, "Сгенерирована матрица вещественных чисел:");
+IntArray = CreateRandomIntArray();
+ShowIntArray(IntArray, "Рассматривается матрица целых чисел:");
 
 Console.WriteLine("\nСреднее арифметическое каждого столбца:");
-double[] AvgArray = AverageNumsInColumns(DoubleArray);
+double[] AvgArray = AverageNumsInColumns(IntArray);
 
 // Выводим массив средних арифметических
 for (int i = 0; i < AvgArray.Length; i++)

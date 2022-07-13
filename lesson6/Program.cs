@@ -35,23 +35,20 @@ int CountPositiveNumbers(int[] arr)
     return result;
 }
 
-
 // Подсчёт количества положительных элементов массива рекурсивно
 int CountPositiveNumbersRecursion(int[] arr, int pos)
 {
     if (pos + 1 >= arr.Length)              // Если достигнут конец массива
     {
         if (arr[pos] > 0) return 1;         // то просто возвращаем 1
-         else return 0;                     // или 0
+        else return 0;                     // или 0
     }
     else                                    // Конец массива не достигнут
     {                                       // метод вызывает сам себя с перемещением на следующий элемент массива
         if (arr[pos] > 0) return 1 + CountPositiveNumbersRecursion(arr, pos + 1);
-            else return 0 + CountPositiveNumbersRecursion(arr, pos + 1);
+        else return 0 + CountPositiveNumbersRecursion(arr, pos + 1);
     }
 }
-
-
 
 // Ввод исходных данных для прямой
 // Методу задаётся номер прямой, а возвращает он массив из двух элементов (k,b)
@@ -78,7 +75,6 @@ int KindOfLines(double[] FirstLine, double[] SecondLine)
 
     return result;
 }
-
 
 // Метод получает на вход данные двух прямых
 // И выдаёт координаты точки их пересечения
@@ -119,6 +115,6 @@ if (k == 0)
 {
     double[] answer = IntersectionPoint(LineOne, LineTwo);      // Находим координаты точки пересечения
     Console.WriteLine($"Прямые пересекаются в точке: ({answer[0]:0.00}; {answer[1]:0.00})");
-} 
+}
 else if (k == 1) Console.WriteLine("Прямые параллельны - не пересекаются");
-        else Console.WriteLine("Прямые совпадают - точек пересечения бесконечное множество");
+else Console.WriteLine("Прямые совпадают - точек пересечения бесконечное множество");
