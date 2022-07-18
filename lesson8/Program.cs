@@ -180,6 +180,50 @@ void FillMatrixBySpiral(int[,] matrix)
 
 }
 
+void FillMatrixBySpiralInRecursion(int[,] array2d, int Number = 1, int RowPos = 0, int ColPos = 0, byte Direction = 1)
+{
+    if (array2d[RowPos, ColPos] == 0)
+    {
+        array2d[RowPos, ColPos] = Number;       // Заполняем текущий элемент полученным числом
+
+        // Определяем в каком направлении будет следующий шаг
+
+        // Если текущее направление слева направо
+        if (Direction == 1)
+        {
+            if (ColPos + 1 < array2d.GetLength(1) && array2d[RowPos, ColPos + 1] == 0) 
+                FillMatrixBySpiralInRecursion(array2d, Number + 1, RowPos, ColPos + 1, Direction);
+            else FillMatrixBySpiralInRecursion(array2d, Number + 1, RowPos + 1, ColPos, 2);
+        }
+
+        // Если текущее направление сверху вниз
+        if (Direction == 2)
+        {
+            if (RowPos + 1 < array2d.GetLength(0) && array2d[RowPos + 1, ColPos] == 0)
+                FillMatrixBySpiralInRecursion(array2d, Number + 1, RowPos + 1, ColPos, Direction);
+            else FillMatrixBySpiralInRecursion(array2d, Number + 1, RowPos, ColPos - 1, 3);
+        }
+
+        // Если текущее направление справа налево
+        if (Direction == 3)
+        {
+            if (ColPos - 1 >= 0 && array2d[RowPos, ColPos - 1] == 0)
+                FillMatrixBySpiralInRecursion(array2d, Number + 1, RowPos, ColPos - 1, Direction);
+            else FillMatrixBySpiralInRecursion(array2d, Number + 1, RowPos - 1, ColPos, 4);
+        }
+
+        // Если текущее направление снизу вверх
+        if (Direction == 4)
+        {
+            if (array2d[RowPos - 1, ColPos] == 0)
+                FillMatrixBySpiralInRecursion(array2d, Number + 1, RowPos - 1, ColPos, Direction);
+            else FillMatrixBySpiralInRecursion(array2d, Number + 1, RowPos, ColPos + 1, 1);
+        }
+
+
+    }
+}
+
 Console.Clear();
 Console.WriteLine("-------------- Задача 1 (54) --------------");
 int rows = new Random().Next(4, 10);
@@ -222,3 +266,6 @@ Console.WriteLine("\n-------------- Задача 5 (62) --------------");
 ShowMatrix(Matrix = CreateRandomIntMatrix(4, 4, 0, 0),"Исходная матрица: ");
 FillMatrixBySpiral(Matrix);
 ShowMatrix(Matrix,"Полученная матрица: ");
+ShowMatrix(Matrix = CreateRandomIntMatrix(6, 5, 0, 0),"Обнуляем матрицу: ");
+FillMatrixBySpiralInRecursion(Matrix);
+ShowMatrix(Matrix,"Полученная матрица рекурсивным методом: ");
