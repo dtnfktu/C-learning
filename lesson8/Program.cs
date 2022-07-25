@@ -156,7 +156,7 @@ void FillMatrixBySpiral(int[,] matrix)
 
      while (CurrentNum <= StopNum)
      {
-        // Идём по верхней незаполненное строке слева направо
+        // Идём по верхней незаполненной строке слева направо
         while (CurrentNum <= StopNum && PosCol < matrix.GetLength(1) && matrix[PosRow, PosCol] == 0)  
             matrix[PosRow, PosCol++] = CurrentNum++;
         PosCol--; PosRow++;                                     // Корректируем текущее положение
@@ -174,12 +174,13 @@ void FillMatrixBySpiral(int[,] matrix)
         // Идём по крайнему левому незаполненному столбцу снизу вверх
         while (CurrentNum <= StopNum && PosRow >= 0 && matrix[PosRow, PosCol] == 0)  
             matrix[PosRow--, PosCol] = CurrentNum++;
-        PosRow++; PosCol++;
+        PosRow++; PosCol++;                                     // Корректируем текущее положение
         
     }
 
 }
 
+// Заполняем матрицу по спирали рекурсивно
 void FillMatrixBySpiralInRecursion(int[,] array2d, int Number = 1, int RowPos = 0, int ColPos = 0, byte Direction = 1)
 {
     if (array2d[RowPos, ColPos] == 0)
